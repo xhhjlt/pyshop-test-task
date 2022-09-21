@@ -53,6 +53,7 @@ export const generateStamps = (): Stamp[] => {
 
 export const getScore = (gameStamps: Stamp[], offset: number): Score => {
     const score = gameStamps
+        .sort((a, b) => a.offset - b.offset)
         .find((stamp) => stamp.offset >= offset)?.score
         || emptyScoreStamp.score;
 
